@@ -6,13 +6,15 @@ const PORT = process.env.PORT;
 
 require('./connections/conn');
 
+const user = require('./routes/user.route');
+app.use(express.json());
+
+// routes
+app.use("/api/v1", user)
+
 app.get('/', (req, res) => {
     res.send("HOME");
 });
-
-app.get('/about', (req, res) => {
-    res.send("ABOUT")
-})
 
 app.listen(PORT, () => {
     console.log("Server running! at", PORT)

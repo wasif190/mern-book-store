@@ -6,11 +6,14 @@ const PORT = process.env.PORT;
 
 require('./connections/conn');
 
-const user = require('./routes/user.route');
 app.use(express.json());
 
 // routes
-app.use("/api/v1", user)
+const User = require('./routes/user.route');
+app.use("/api/v1", User)
+
+const Books = require('./routes/book.route');
+app.use("/api/v1", Books)
 
 app.get('/', (req, res) => {
     res.send("HOME");

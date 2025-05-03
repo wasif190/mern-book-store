@@ -102,7 +102,7 @@ router.put("/update-address", authenticateToken, async(req, res) => {
 
         return res.status(200).json({message: "address updated successfuly"})
     } catch (error) {
-        
+        res.status(500).json({ message: "Internal server error "})
     }
 })
 

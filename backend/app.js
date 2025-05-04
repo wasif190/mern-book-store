@@ -21,6 +21,9 @@ app.use("/api/v1", Favourite);
 const Cart = require('./routes/cart.route');
 app.use("/api/v1", Cart);
 
+const Order = require('./routes/order.route');
+app.use("/api/v1", Order);
+
 app.get('/', (req, res) => {
     res.send("HOME");
 });

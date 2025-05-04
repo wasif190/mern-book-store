@@ -18,6 +18,9 @@ app.use("/api/v1", Books)
 const Favourite = require('./routes/favourite.route');
 app.use("/api/v1", Favourite);
 
+const Cart = require('./routes/cart.route');
+app.use("/api/v1", Cart);
+
 app.get('/', (req, res) => {
     res.send("HOME");
 });

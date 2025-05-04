@@ -15,6 +15,9 @@ app.use("/api/v1", User)
 const Books = require('./routes/book.route');
 app.use("/api/v1", Books)
 
+const Favourite = require('./routes/favourite.route');
+app.use("/api/v1", Favourite);
+
 app.get('/', (req, res) => {
     res.send("HOME");
 });

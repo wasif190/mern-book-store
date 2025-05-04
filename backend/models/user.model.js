@@ -28,7 +28,7 @@ const user = mongoose.Schema({
         default: "user",
         enum: ["user", "admin"]
     },
-    favourates: [{
+    favourites: [{
         type: mongoose.Types.ObjectId,
         ref: "books"
     }],

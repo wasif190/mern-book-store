@@ -1,4 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
+import { CiMenuFries } from "react-icons/ci";
+
 
 function Navbar() {
     const links = [
@@ -24,29 +27,62 @@ function Navbar() {
         },
     ]
 
+    const [MobileNav, setMobileNav] = useState("hidden");
+
     return (
-        <div className='bg-zinc-800 text-white px-8 py-4 flex justify-between'>
-            <div>
-                <h1 className='text-2xl font-semibold'>Book Store</h1>
-            </div>
-            <div className='nav-links flex items-center gap-4'>
-                <div className='flex gap-4'>
-                    {
-                        links.map((items, i) => (
-                            <div className='hover:text-blue-500 transition-all duration-300 cursor-pointer' key={i}>{items.title}</div>
-                        ))
-                    }
-                </div>
-                <div className='flex gap-4'>
-                    <button className='px-4 py-1 border border-blue-500 cursor-pointer rounded'>
-                        SignIn
+        <>
+            <nav className='z-50 relative bg-zinc-800 text-white px-10 py-4 flex justify-between'>
+                <Link to="/">
+                    <h1 className='text-2xl font-semibold uppercase'>Book Store</h1>
+                </Link>
+                <div className='nav-links flex items-center gap-4'>
+                    <div className='gap-4 md:flex hidden'>
+                        {
+                            links.map((items, i) => (
+                                <Link 
+                                    className='hover:text-blue-500 transition-all duration-300 cursor-pointer' 
+                                    key={i}
+                                    to={items.link}
+                                >
+                                    {items.title}
+                                </Link>
+                            ))
+                        }
+                    </div>
+                    <div className='gap-4 md:flex hidden'>
+                        <Link to="/signUp" className='px-4 py-1 border border-blue-500 cursor-pointer rounded'>
+                            SignIn
+                        </Link>
+                        <Link to="/login" className='px-4 py-1 bg-white text-zinc-800 cursor-pointer rounded'>
+                            SignUp
+                        </Link>
+                    </div>
+                    <button className='text-white text-2xl md:hidden' onClick={() => (MobileNav === "hidden" ? setMobileNav("block") : setMobileNav("hidden"))}>
+                        <CiMenuFries/>
                     </button>
-                    <button className='px-4 py-1 bg-white text-zinc-800 cursor-pointer rounded'>
-                        SignUp
-                    </button>
                 </div>
+            </nav>
+            <div className={`${MobileNav} bg-zinc-800 h-screena absolute top-0 left-0 right-0 bottom-0 w-full z-40 flex flex-col items-center justify-center`}>
+                {
+                    links.map((items, i) => (
+                        <Link 
+                            className={` ${MobileNav} hover:text-blue-500 transition-all duration-300 cursor-pointer text-white text-2xl mb-6`}
+                            key={i}
+                            to={items.link}
+                        >
+                            {items.title}
+                        </Link>
+                    ))
+                }
+
+                <Link to="/signUp" className={`${MobileNav} px-4 mb-6 text-2xl text-white py-1 border border-blue-500 cursor-pointer rounded`}>
+                    SignIn
+                </Link>
+                <Link to="/login" className={`${MobileNav} px-4 text-2xl py-1 bg-white text-zinc-800 cursor-pointer rounded`}>
+                    SignUp
+                </Link>
             </div>
-        </div>
+        </>
     )
 }
 

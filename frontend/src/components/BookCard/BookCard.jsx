@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function BookCard({ data }) {
   return (
-    <Link>
+    <Link to={`/view-book-details/${data._id}`}>
       <div className="bg-white rounded shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden flex flex-col h-[320px]">
         <div className="bg-gray-800 flex items-center justify-center">
           <img

@@ -16,7 +16,7 @@ function AllBooks() {
   }, []);
 
   return (
-    <div className="pt-10 px-10 bg-zinc-900 h-auto">
+    <div className="py-10 px-10 bg-zinc-900 h-auto">
       <h1 className="text-white uppercase text-2xl font-semibold">All Books</h1>
       {!Data && <div className="flex justify-center my-8"><Loader /></div>}
       <div className="grid my-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">

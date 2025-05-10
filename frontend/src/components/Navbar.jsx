@@ -5,7 +5,6 @@ import { CiMenuFries } from "react-icons/ci";
 function Navbar() {
     const links = [
         { title: "Home", link: "/" },
-        { title: "About", link: "/about-us" },
         { title: "All Books", link: "/all-books" },
         { title: "Cart", link: "/cart" },
         { title: "Profile", link: "/profile" },
@@ -37,10 +36,10 @@ function Navbar() {
                     </div>
                     <div className='gap-4 md:flex hidden'>
                         <Link to="/signUp" className='px-4 py-1 border border-blue-500 cursor-pointer rounded'>
-                            SignIn
+                            SignUp
                         </Link>
                         <Link to="/login" className='px-4 py-1 bg-white text-zinc-800 cursor-pointer rounded'>
-                            SignUp
+                            LogIn
                         </Link>
                     </div>
                     <button 
@@ -70,14 +69,14 @@ function Navbar() {
                     className='px-4 mb-6 text-2xl text-white py-1 border border-blue-500 cursor-pointer rounded'
                     onClick={handleLinkClick}
                 >
-                    SignIn
+                    SignUp
                 </Link>
                 <Link 
                     to="/login" 
                     className='px-4 text-2xl py-1 bg-white text-zinc-800 cursor-pointer rounded'
                     onClick={handleLinkClick}
                 >
-                    SignUp
+                    LogIn
                 </Link>
             </div>
         </>

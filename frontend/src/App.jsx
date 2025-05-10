@@ -7,6 +7,7 @@ import AllBooks from './pages/AllBooks';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import Cart from './pages/Cart';
+import ViewBookDetails from './components/ViewBookDetails/ViewBookDetails';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path='/cart' element={<Cart/>}/>
           <Route path='/login' element={<Login/>}/>
           <Route path='/signUp' element={<SignUp/>}/>
+          <Route path='/view-book-details/:id' element={<ViewBookDetails/>}/>
         </Routes>
 
         <Footer/>
